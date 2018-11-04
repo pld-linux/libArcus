@@ -1,12 +1,13 @@
 Summary:	Communication library between internal components for Ultimaker software
 Summary(pl.UTF-8):	Biblioteka komunikacji między wewnętrznymi komponentami oprogramowania Ultimaker
 Name:		libArcus
-Version:	2.5.0
-Release:	4
+Version:	3.5.1
+Release:	1
 License:	AGPL v3+
 Group:		Libraries
 Source0:	https://github.com/Ultimaker/libArcus/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	a8f83c896793262967971b7a94fe3082
+# Source0-md5:	2a04e6b07778c99d0962ce4e2c650559
+Patch0:		PyQt5-sip.patch
 URL:		https://github.com/Ultimaker/libArcus
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	libstdc++-devel >= 6:4.7
@@ -63,6 +64,7 @@ backendem i podobnym kodem.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 mkdir build

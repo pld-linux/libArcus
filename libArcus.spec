@@ -2,7 +2,7 @@ Summary:	Communication library between internal components for Ultimaker softwar
 Summary(pl.UTF-8):	Biblioteka komunikacji między wewnętrznymi komponentami oprogramowania Ultimaker
 Name:		libArcus
 Version:	3.5.1
-Release:	1
+Release:	2
 License:	AGPL v3+
 Group:		Libraries
 Source0:	https://github.com/Ultimaker/libArcus/archive/%{version}/%{name}-%{version}.tar.gz

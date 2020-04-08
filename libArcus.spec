@@ -1,13 +1,13 @@
 Summary:	Communication library between internal components for Ultimaker software
 Summary(pl.UTF-8):	Biblioteka komunikacji między wewnętrznymi komponentami oprogramowania Ultimaker
 Name:		libArcus
-Version:	3.5.1
-Release:	5
+Version:	4.5.0
+Release:	1
 License:	AGPL v3+
 Group:		Libraries
 #Source0Download: https://github.com/Ultimaker/libArcus/releases
 Source0:	https://github.com/Ultimaker/libArcus/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	2a04e6b07778c99d0962ce4e2c650559
+# Source0-md5:	2966fc6e19f0ace9803cc90754a5f0fd
 Patch0:		PyQt5-sip.patch
 URL:		https://github.com/Ultimaker/libArcus
 BuildRequires:	cmake >= 2.8.12
@@ -72,16 +72,19 @@ mkdir build
 cd build
 %cmake .. \
 	-DBUILD_EXAMPLES:BOOL=OFF \
-	-DCMAKE_SKIP_RPATH:BOOL=ON \
-	-DPYTHON_SITE_PACKAGES_DIR:PATH=%{py3_sitedir}
+	-DCMAKE_SKIP_RPATH:BOOL=ON
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{py3_sitedir}
 
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# python location detection is totally screwed in this package
+%{__mv} $RPM_BUILD_ROOT{/usr/local/%{_lib}/python3*/site-packages,%{py3_sitedir}}/Arcus.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT

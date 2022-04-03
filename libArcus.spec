@@ -2,7 +2,7 @@ Summary:	Communication library between internal components for Ultimaker softwar
 Summary(pl.UTF-8):	Biblioteka komunikacji między wewnętrznymi komponentami oprogramowania Ultimaker
 Name:		libArcus
 Version:	4.5.0
-Release:	7
+Release:	8
 License:	AGPL v3+
 Group:		Libraries
 #Source0Download: https://github.com/Ultimaker/libArcus/releases
@@ -82,9 +82,6 @@ install -d $RPM_BUILD_ROOT%{py3_sitedir}
 
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-# python location detection is totally screwed in this package
-%{__mv} $RPM_BUILD_ROOT{/usr/local/%{_lib}/python3*/site-packages,%{py3_sitedir}}/Arcus.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT

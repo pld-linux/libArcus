@@ -1,19 +1,20 @@
 Summary:	Communication library between internal components for Ultimaker software
 Summary(pl.UTF-8):	Biblioteka komunikacji między wewnętrznymi komponentami oprogramowania Ultimaker
 Name:		libArcus
-Version:	4.5.0
-Release:	9
+# keep in sync with CuraEngine, cura, libSavitar, python3-Uranium
+Version:	4.13.2
+Release:	1
 License:	AGPL v3+
 Group:		Libraries
-#Source0Download: https://github.com/Ultimaker/libArcus/releases
+#Source0Download: https://github.com/Ultimaker/libArcus/tags
 Source0:	https://github.com/Ultimaker/libArcus/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	2966fc6e19f0ace9803cc90754a5f0fd
-Patch0:		PyQt5-sip.patch
+# Source0-md5:	a946cea7e2ca1de0f3f3c5d634220829
+Patch0:		%{name}-protobuf.patch
 URL:		https://github.com/Ultimaker/libArcus
-BuildRequires:	cmake >= 2.8.12
-BuildRequires:	libstdc++-devel >= 6:4.7
+BuildRequires:	cmake >= 3.8
+BuildRequires:	libstdc++-devel >= 6:7
 BuildRequires:	protobuf-devel >= 3.0.0
-BuildRequires:	python3-devel >= 1:3.2
+BuildRequires:	python3-devel >= 1:3.4
 BuildRequires:	python3-sip-devel
 BuildRequires:	sip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

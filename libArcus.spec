@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Biblioteka komunikacji między wewnętrznymi komponentami opr
 Name:		libArcus
 # keep in sync with CuraEngine, cura, libSavitar, python3-Uranium
 Version:	4.13.2
-Release:	
+Release:	2
 License:	AGPL v3+
 Group:		Libraries
 #Source0Download: https://github.com/Ultimaker/libArcus/tags
@@ -66,7 +66,7 @@ backendem i podobnym kodem.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P 0 -p1
 
 %build
 mkdir build
